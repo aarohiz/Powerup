@@ -18,30 +18,35 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class Robot extends IterativeRobot {
 	/* Author --> Gokul Swaminathan */
-	final int FRONT_LEFT_PORT = 0;
-	final int BACK_LEFT_PORT = 1;
-	final int FRONT_RIGHT_PORT = 3;
-	final int BACK_RIGHT_PORT = 4;
-	final int XBOX_PORT = 0;
-	final int ANDREWS_JOY1 = 1;
-	final int ANDREWS_JOY2 = 2;
+	final int FRONT_LEFT_PORT = 0;   				//port number for front left motor
+	final int BACK_LEFT_PORT = 1;					//port number for back left motor
+	final int FRONT_RIGHT_PORT = 3;					//port number for front right motor
+	final int BACK_RIGHT_PORT = 4;					//port number for back right motor
+	final int XBOX_PORT = 0;						//xbox remote port
+	final int ANDREWS_JOY1 = 1;						//joystick 1 port
+	final int ANDREWS_JOY2 = 2;						//joystick 2 port
 	
-	final int CHOOSE_XBOX = 0, CHOOSE_DUAL = 1;
+	final int CHOOSE_XBOX = 0, CHOOSE_DUAL = 1;		//chooser id's
 	
+	//motors
 	Talon fLeft = new Talon(FRONT_LEFT_PORT);
 	Talon fRight = new Talon(FRONT_RIGHT_PORT);
 	Talon bLeft = new Talon(BACK_LEFT_PORT);
 	Talon bRight = new Talon(BACK_RIGHT_PORT);
 	
+	//groups of motors
 	SpeedControllerGroup spLeft = new SpeedControllerGroup(fLeft, bLeft); 
 	SpeedControllerGroup spRight = new SpeedControllerGroup(fRight, bRight);
 
+	//drivetrain
 	DifferentialDrive driveTrain = new DifferentialDrive(spLeft, spRight);
 	
+	//controllers
 	Joystick xbox = new Joystick(XBOX_PORT);
 	Joystick joyLeft = new Joystick(ANDREWS_JOY1);
 	Joystick joyRight = new Joystick(ANDREWS_JOY2);
 	
+	//strings for chooser
 	String power = "Drive Power";
 	String sensitivity = "Sensitivity";
 	/* Author --> Gokul Swaminathan */

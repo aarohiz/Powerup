@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
 	
 	SendableChooser<Integer> chooser = new SendableChooser<>();
 	
-	
+	/* Author --> Neal Chokshi */
 	// Autonomous Variables
 	DriverStation driverStation;
 	String fmsMessage;
@@ -64,6 +64,7 @@ public class Robot extends IterativeRobot {
 	int encoderAvg;
 	char switchSide, scaleSide;
 	double encDist, distanceTraveled;
+	/* Author --> Neal Chokshi */
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -93,12 +94,14 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		/* Author --> Neal Chokshi */
 		//init vars
 		fmsMessage = driverStation.getGameSpecificMessage();
 		switchSide = fmsMessage.charAt(0);
 		scaleSide = fmsMessage.charAt(1);
 		distanceTraveled = 0;
 		encDist = Math.PI * 6;
+		/* Author --> Neal Chokshi */
 		
 	}
 
@@ -107,8 +110,10 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		/* Author --> Neal Chokshi */
 		encoderAvg = (rEncoder.get() + lEncoder.get())/2;
 		distanceTraveled = encDist*encoderAvg;
+		/* Author --> Neal Chokshi */
 	}
 
 	/**

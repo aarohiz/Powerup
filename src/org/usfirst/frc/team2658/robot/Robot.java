@@ -25,8 +25,8 @@ public class Robot extends IterativeRobot {
 	final int FRONT_RIGHT_PORT = 3;					//port number for front right motor
 	final int BACK_RIGHT_PORT = 4;					//port number for back right motor
 	final int XBOX_PORT = 0;						//xbox remote port
-	final int ANDREWS_JOY1 = 1;						//joystick 1 port
-	final int ANDREWS_JOY2 = 2;						//joystick 2 port
+	final int JOY1_PORT = 1;						//joystick 1 port
+	final int JOY2_PORT = 2;						//joystick 2 port
 	
 	final int CHOOSE_XBOX = 0, CHOOSE_DUAL = 1;		//chooser id's
 	
@@ -45,8 +45,8 @@ public class Robot extends IterativeRobot {
 	
 	//controllers
 	Joystick xbox = new Joystick(XBOX_PORT);
-	Joystick joyLeft = new Joystick(ANDREWS_JOY1);
-	Joystick joyRight = new Joystick(ANDREWS_JOY2);
+	Joystick joyLeft = new Joystick(JOY1_PORT);
+	Joystick joyRight = new Joystick(JOY2_PORT);
 	
 	//strings for chooser
 	String power = "Drive Power";
@@ -139,12 +139,12 @@ public class Robot extends IterativeRobot {
 		{
 		case CHOOSE_XBOX: 
 			//run tank drive method for xbox
-			andrewTankDrive(xbox, xbox, exponent, constant, driveTrain, xboxLeftAxis, xboxRightAxis);
+			DriveTankDrive(xbox, xbox, exponent, constant, driveTrain, xboxLeftAxis, xboxRightAxis);
 			break;
 			
 		case CHOOSE_DUAL:
 			//run tank drive method for joysticks
-			andrewTankDrive(joyRight, joyLeft, exponent, constant, driveTrain, joyLeftAxis, joyRightAxis);
+			DriveTankDrive(joyRight, joyLeft, exponent, constant, driveTrain, joyLeftAxis, joyRightAxis);
 			break;
 			
 		default:
@@ -162,7 +162,7 @@ public class Robot extends IterativeRobot {
 	}
 	
 	/* Author --> Gokul Swaminathan */
-	public void andrewTankDrive(Joystick inputR, Joystick inputL,  double exp, double cons, DifferentialDrive drive, int leftStick, int rightStick )
+	public void DriveTankDrive(Joystick inputR, Joystick inputL,  double exp, double cons, DifferentialDrive drive, int leftStick, int rightStick )
 	{
 		int negR = 0, negL = 0;
 		

@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2658.robot;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -52,6 +54,16 @@ public class Robot extends IterativeRobot {
 	/* Author --> Gokul Swaminathan */
 	
 	SendableChooser<Integer> chooser = new SendableChooser<>();
+	
+	
+	// Autonomous Variables
+	DriverStation driverStation;
+	String fmsMessage;
+	
+	Encoder rEncoder, lEncoder;
+	int encoderAvg;
+	char switchSide, scaleSide;
+	double encDist, distanceTraveled;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -81,6 +93,12 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		//init vars
+		fmsMessage = driverStation.getGameSpecificMessage();
+		switchSide = fmsMessage.charAt(0);
+		scaleSide = fmsMessage.charAt(1);
+		distanceTraveled = 0;
+		encDist = Math.PI * 6;
 		
 	}
 
@@ -89,7 +107,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		
+		encoderAvg = (rEncoder.get() + lEncoder.get())/2;
+		distanceTraveled = encDist*encoderAvg;
 	}
 
 	/**

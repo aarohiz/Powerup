@@ -14,4 +14,6 @@ Source code for running Team 2658's robot.
 7. Go back to the open window, and paste it in the URL box. The next two boxes will fill up automatically.
 8. Under connection, click on protocol box and click `https`
 9. Put in your GitHub username and password in the authentication box.
-10. Click on next until you click finish.
+10. Click on next until you click finish. On one of the windows, there will be an option to pick a destination folder. Select one.
+11. Import the project from that directory.
+12. Right click on the project folder in package explorer --> Team --> this is where you can find all the git actions.
